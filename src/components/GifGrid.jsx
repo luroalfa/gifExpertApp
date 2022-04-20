@@ -1,16 +1,17 @@
 import React from "react";
-import { getGifs } from "../helpers/getGifs";
+// Hook
+import { useFecthGifs } from "../hooks/useFecthGifs";
+// Components
 import GifGridItem from "./GifGridItem";
+import Loading from "../components/Loading";
 
 const GifGrid = ({ category }) => {
-  const [images, setImages] = React.useState([]);
-  React.useEffect(() => {
-    getGifs(category).then(setImages);
-  }, [category]);
+  const { data: images, loading } = useFecthGifs(category);
 
   return (
     <>
       <h3>{category}</h3>
+      {loading && <Loading />}
       <div className="card-grid">
         {images.map((img) => (
           <ol>
