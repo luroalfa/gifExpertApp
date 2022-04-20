@@ -14,8 +14,12 @@ const GifGrid = ({ category }) => {
       {loading && <Loading />}
       <div className="card-grid">
         {images.map((img) => (
-          <ol>
-            <GifGridItem key={img.id} {...img} />
+          <ol key={img.id}>
+            <GifGridItem
+              className="animate__animated animate__fadeInDown"
+              key={img.id}
+              {...img}
+            />
           </ol>
         ))}
       </div>
