@@ -22,5 +22,5 @@ export const useFecthGifs = (category) => {
       }, 1000)
     })
   }, [category]);
-  return state; //{data:[], loading:true}
+  return state;
 };
